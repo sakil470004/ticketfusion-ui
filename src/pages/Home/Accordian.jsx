@@ -2,48 +2,54 @@ const Accordion = () => {
   const faqArray = [
     {
       id: 1,
-      question: "Do you offer international shipping?",
+      question: "Can I sell my event tickets on Ticket Fusion?",
       answer:
-        "Yes, we ship worldwide. Shipping costs will be added at checkout.",
+        "Yes, you can list your event tickets for sale on Ticket Fusion. Simply create an account and follow the instructions to list your tickets.",
     },
     {
       id: 2,
-      question: "What is the delivery time for orders?",
+      question: "How do I buy tickets on Ticket Fusion?",
       answer:
-        "UK orders are delivered within 3-5 working days. International delivery times may vary.",
+        "To buy tickets, browse the events on our website, select the tickets you want, and proceed to checkout to complete your purchase.",
     },
     {
       id: 3,
-      question: "Can I return my product?",
+      question: "What payment methods are accepted?",
       answer:
-        "Yes, you can return your order within 45 days. Use the returns form provided.",
+        "We accept major credit cards, debit cards, and PayPal for ticket purchases.",
     },
     {
       id: 4,
-      question: "Do you allow exchanges?",
+      question: "Can I get a refund for my tickets?",
       answer:
-        "Unfortunately, we do not offer exchanges. Please return the item for a refund and place a new order.",
+        "Refunds are available for certain events. Please check the event’s refund policy or contact our support team for assistance.",
     },
     {
       id: 5,
-      question: "Can I return items to a physical store?",
+      question: "How do I receive my tickets after purchase?",
       answer:
-        "Yes, you can return items to any Pavers store within 45 days of receiving them.",
+        "After completing your purchase, your tickets will be emailed to you. You can also access them through your Ticket Fusion account.",
     },
   ];
+
   return (
-    <div className="my-6 mb-10">
-    <h2 className="text-2xl font-bold text-orange-400 uppercase">
-      FAQ
-    </h2>
-      <div className="mt-6 flex flex-col gap-5 border-l-4 pl-3 border-l-orange-200">
+    <div className="py-8 md:py-10  bg-cover bg-center">
+    <div className="">
+      <span className="text-2xl border-b-4 border-b-sky-600 text-sky-400 md:text-3xl font-semibold uppercase">
+     Got Questions? We Have Answers
+      </span>
+    </div>
+      <div className="mt-6 flex flex-col gap-5 border-l-4 pl-3 border-l-sky-200">
         {faqArray.map((faq) => (
-          <div className="collapse collapse-arrow bg-gray-50 shadow-sm border-2 border-orange-100" key={faq.id}>
+          <div
+            className="collapse collapse-arrow bg-gray-50 shadow-sm border-2 border-sky-100"
+            key={faq.id}
+          >
             <input type="radio" name="my-accordion-2" defaultChecked />
             <div className="collapse-title text-xl font-medium">
               {faq.question}
             </div>
-            <div className="collapse-content border-b-2 border-blue-200">
+            <div className="collapse-content border-b-2 border-sky-200">
               <p>{faq.answer}</p>
             </div>
           </div>

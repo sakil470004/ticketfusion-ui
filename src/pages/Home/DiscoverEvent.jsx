@@ -17,9 +17,9 @@ function DiscoverEvent() {
     <div className="py-8 md:py-10  bg-cover bg-center">
       <div className="flex justify-between items-end">
         <div className="">
-          <h1 className="text-2xl text-sky-400 md:text-3xl font-semibold">
-            Discover live events
-          </h1>
+        <span className="text-2xl border-b-4 border-b-sky-600 text-sky-400 md:text-3xl font-semibold uppercase">
+        Discover Live Events
+          </span>
           <p className="text-xl mt-5  font-semibold">
             Take a peek at some amazing events using Ticket Tailor.
           </p>
