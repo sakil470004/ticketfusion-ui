@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DiscoverEventCard from "./DiscoverEventCard";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function DiscoverEvent() {
   const [events, setEvents] = useState([]);
@@ -24,9 +25,9 @@ function DiscoverEvent() {
             Take a peek at some amazing events using Ticket Tailor.
           </p>
         </div>
-        <button className="btn text-xl  text-white bg-blue-900  border-b-4  hover:border-b-blue-900 hover:bg-blue-700 ">
+        <Link to={"/events"} className="btn text-xl  text-white bg-blue-900  border-b-4  hover:border-b-blue-900 hover:bg-blue-700 ">
           Discover More
-        </button>
+        </Link>
       </div>
       <div className="grid md:grid-cols-4 mt-8 gap-5">
 {

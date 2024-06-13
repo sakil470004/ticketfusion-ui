@@ -5,6 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         'discover': "url('./src/assets/bg-discover.jpg')",
+        'detailsBg': "url('./src/assets/detailsBg.jpg')",
       },
     },
   },

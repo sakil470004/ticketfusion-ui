@@ -1,14 +1,20 @@
 import { CiLocationOn } from "react-icons/ci"
 import { MdOutlineDateRange } from "react-icons/md"
+import { useNavigate } from "react-router-dom"
 
 function DiscoverEventCard({event}) {
-  
+  const navigation = useNavigate()
+  const imgHolder =
+  "https://www.thedigitalbridges.com/wp-content/uploads/2018/02/tech-conference-768x498.jpg";
+  const handleDetails = () => {
+    navigation(`/events/${event._id}`)
+  }
   return (
-    <div className="group card  card-compact  bg-base-100 shadow-xl rounded-lg border border-white  hover:border-gray-400 transition-all duration-300">
+    <div onClick={handleDetails}  className="cursor-pointer group card  card-compact  bg-base-100 shadow-xl rounded-lg border border-white  hover:border-gray-400 transition-all duration-300">
       <div className="   justify-center items-center  transition-all duration-700 overflow-hidden">
         <img
           className="object-cover  max-h-full  m-auto rounded-lg group-hover:scale-105 w-full md:h-[250px] group-hover:transform group-hover:duration-700"
-          src={event?.img}
+          src={event?.img||imgHolder }
           alt="Shoes"
         />
       </div>

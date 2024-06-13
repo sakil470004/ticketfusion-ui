@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Comments() {
-  const [comments, setComments] = useState([]);
+function Comments({comments }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = (index) => {
@@ -18,15 +17,6 @@ function Comments() {
     }, 3000);
     return () => clearInterval(interval);
   }, [currentIndex]);
-  useEffect(() => {
-    fetch("http://localhost:5000/comments")
-      .then((res) => res.json())
-      .then((data) => {
-        const newData = data.reverse();
-        setComments(newData.slice(4, 8));
-      });
-  }, []);
-  console.log(comments);
   return (
     <div className="py-8 md:py-10  bg-cover bg-center">
       <div className="">
