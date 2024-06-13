@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'discover': "url('./src/assets/bg-discover.jpg')",
+      },
+    },
   },
   plugins: [
     // eslint-disable-next-line no-undef
