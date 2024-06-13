@@ -3,7 +3,7 @@ export default function GetStated() {
   return (
     <div className="grid md:grid-cols-2 gap-5 my-10  border-l-4 border-l-sky-200">
       <div>
-        <img className="mask mask-decagon" src={GetStatedImg} alt="create your event" />
+        <img className="mask mask-triangle-4" src={GetStatedImg} alt="create your event" />
       </div>
       <div className="flex flex-col gap-5  md:gap-8 items-start justify-center">
         <h1 className="text-4xl md:text-5xl font-semibold leading-loose tracking-widest">
