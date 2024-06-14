@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
       },
       { path: "/register", element: <Registration /> },
       {path: "/events", element: <AllEvent />},
-      {path: "/events/:id", element: <EventDetails />},
+      {path: "/events/:id", element: <PrivateRoute><EventDetails /></PrivateRoute>},
     ],
   },
   {
