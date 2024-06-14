@@ -23,8 +23,7 @@ function DashboardAllEvent() {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        // todo: for the token trun it on again
-        // authorization: "Bearer " + token,
+        authorization: "Bearer " + token,
       },
     })
       .then((res) => res.json())

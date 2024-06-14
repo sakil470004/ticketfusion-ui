@@ -121,6 +121,7 @@ function EventDetails() {
         <div>
           {/* card for old booking information */}
           {!isEmpty(booking) && (<div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 relative">
+            <Link to={`/dashboard/showbooking/${event?._id}`} className="badge -top-3 -right-3 absolute badge-md badge-accent z-30 text-white font-bold">Guest List</Link>
             <div className="card-body">
               <h2 className="card-title">Previous Booking Details</h2>
 

@@ -117,7 +117,7 @@ const Navbar = () => {
               <BiExit /> Logout
             </button>
        
-            <div className="pl-4 avatar group" title={user?.displayName || ""}>
+            <div className="pl-4 avatar group cursor-pointer" title={user?.displayName || ""}>
               <div
                 onClick={handleProfile}
                 className="w-12 rounded-full border-2 border-black group-hover:border-yellow-300"

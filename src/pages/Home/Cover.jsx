@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import cover from "../../assets/cover.png";
 export default function Cover() {
   return (
@@ -11,9 +12,9 @@ export default function Cover() {
           Whether it’s your first event ever, or your biggest event yet, we make
           it simple to sell tickets.
         </p>
-        <button className="btn text-white bg-blue-900 text-xl hover:bg-blue-800">
+        <Link to={'/dashboard/add-event'} className="btn text-white bg-blue-900 text-xl hover:bg-blue-800">
           Create Your Event
-        </button>
+        </Link>
       </div>
       <div>
         <img src={cover} alt="create your event" />

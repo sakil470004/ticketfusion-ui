@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GetStatedImg from "../../assets/get-stated-photo.jpg"
 export default function GetStated() {
   return (
@@ -15,9 +16,9 @@ export default function GetStated() {
           problem.
         </p>
         <div className="flex gap-5">
-          <button className="btn text-white bg-blue-900 text-xl hover:bg-blue-800">
-            Create Your Event
-          </button>
+        <Link to={'/dashboard/add-event'} className="btn text-white bg-blue-900 text-xl hover:bg-blue-800">
+          Create Your Event
+        </Link>
           <button className="btn text-blue-900 bg-white text-xl hover:bg-gray-100">
             Schedule a Demo
           </button>

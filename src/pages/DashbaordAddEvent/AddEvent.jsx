@@ -1,8 +1,10 @@
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 function AddEvent() {
   const { user } = useAuth();
+  const navigation = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,7 +39,8 @@ function AddEvent() {
       });
       if (response.ok) {
         toast.success("Event added successfully");
-        // window.location.reload();
+        navigation(`/dashboard/events`);
+      
       }
     } catch (error) {
       toast.error("Error:", error);
