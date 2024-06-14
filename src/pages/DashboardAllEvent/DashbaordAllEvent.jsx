@@ -2,17 +2,46 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CgAdd } from "react-icons/cg";
 import DashboardAllEventCard from "./DashboardAllEventCard";
+import useFunction from "../../hooks/useFunction";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import toast from "react-hot-toast";
 
 function DashboardAllEvent() {
   const [events, setEvents] = useState([]);
+  const { isEmpty } = useFunction();
   useEffect(() => {
     fetch("http://localhost:5000/events")
       .then((res) => res.json())
       .then((data) => {
-        data.reverse()
+        data.reverse();
         setEvents(data);
       });
   }, []);
+  const handleDelete = (id) => {
+    const token = localStorage.getItem("token");
+    fetch(`http://localhost:5000/events/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        // todo: for the token trun it on again
+        // authorization: "Bearer " + token,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setEvents(events.filter((event) => event._id !== id));
+        toast.success("Event deleted successfully");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        toast.error("Error:", error);
+      });
+  };
+  if (isEmpty(events)) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <div className="py-8 md:py-10 px-4 bg-cover bg-center">
       <div className="flex justify-between items-end">
@@ -30,7 +59,11 @@ function DashboardAllEvent() {
       </div>
       <div className="grid md:grid-cols-3 mt-8 gap-5">
         {events.map((event) => (
-          <DashboardAllEventCard key={event.id} event={event} />
+          <DashboardAllEventCard
+            handleDelete={handleDelete}
+            key={event.id}
+            event={event}
+          />
         ))}
       </div>
     </div>

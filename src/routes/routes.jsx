@@ -13,6 +13,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardHome from "../pages/DashboardHome/DashboardHome";
 import DashboardAllEvent from "../pages/DashboardAllEvent/DashbaordAllEvent";
 import AddEvent from "../pages/DashbaordAddEvent/AddEvent";
+import EditEvent from "../pages/DashboardEditEvent/EditEvent";
 
 export const router = createBrowserRouter([
   {
@@ -65,7 +66,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      
+      {
+        path: "edit-event/:id",
+        element: (
+          <PrivateRoute>
+            <EditEvent />,
+          </PrivateRoute>
+        ),
+      },
      
 
       {

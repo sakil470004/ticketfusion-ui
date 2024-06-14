@@ -1,25 +1,9 @@
 import toast from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
 
 function AddEvent() {
-  //    here event data will be added to the database
-  const siteData = {
-    _id: "666b06c0d54867ddfbf5ea16",
-    eventId: "1",
-    eventName: "Concert by The Rolling Stones",
-    eventDate: "2024-07-20",
-    eventTime: "19:00",
-    venue: {
-      name: "Madison Square Garden",
-      address: "4 Pennsylvania Plaza, New York, NY 10001",
-    },
-    img: "https://th.bing.com/th/id/R.ab2a6f5f5bb185449d6783ec2b26f405?rik=yiwQxibFM6EofA&riu=http%3a%2f%2fwac.450f.edgecastcdn.net%2f80450F%2fmix931fm.com%2ffiles%2f2017%2f05%2fconcert-crowd-ThinkstockPhotos-577332304.jpg&ehk=tpBxTpc%2fmEkbuzm%2fwRd8jQv3oolk1%2bVT06fcSLjsDUI%3d&risl=&pid=ImgRaw&r=0",
-    description:
-      "Join us for an unforgettable night with The Rolling Stones at Madison Square Garden.",
-    price: 150,
-    ticketType: "Paid",
-    organizerName: "John Smith",
-    organizerEmail: "john.smith@example.com",
-  };
+    const {user}=useAuth()
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -39,6 +23,7 @@ function AddEvent() {
       organizerName: formData.get("organizerName"),
       organizerEmail: formData.get("organizerEmail"),
       totalTicket: formData.get("totalTicket"),
+      addedBy: user?.email,
     };
     try {
       const response = await fetch("http://localhost:5000/events", {
