@@ -8,6 +8,9 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import Registration from "../pages/Registration/Registration";
 import AllEvent from "../pages/AllEvnets/AllEvent";
 import EventDetails from "../pages/EventDetails/EventDetails";
+import PrivateRoute from "./private/PrivateRoute";
+import DashboardHome from "../pages/old/DashboardHome/DashboardHome";
+import DashboardLayout from "../Layout/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +31,28 @@ export const router = createBrowserRouter([
       { path: "/register", element: <Registration /> },
       {path: "/events", element: <AllEvent />},
       {path: "/events/:id", element: <EventDetails />},
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <DashboardLayout />,
+    errorElement: <ErrorPage />,
+    loadingElement: <LoadingSpinner />,
+    children: [
+      {
+        path: "",
+        element: (
+          <PrivateRoute>
+            <DashboardHome />,
+          </PrivateRoute>
+        ),
+      },
+     
+
+      {
+        path: "*",
+        element: <ErrorPage />,
+      },
     ],
   },
 ]);
