@@ -9,8 +9,9 @@ import Registration from "../pages/Registration/Registration";
 import AllEvent from "../pages/AllEvnets/AllEvent";
 import EventDetails from "../pages/EventDetails/EventDetails";
 import PrivateRoute from "./private/PrivateRoute";
-import DashboardHome from "../pages/old/DashboardHome/DashboardHome";
 import DashboardLayout from "../Layout/DashboardLayout";
+import DashboardHome from "../pages/DashboardHome/DashboardHome";
+import DashboardAllEvent from "../pages/DashboardAllEvent/DashbaordAllEvent";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +48,23 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "events",
+        element: (
+          <PrivateRoute>
+            <DashboardAllEvent />,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "add-event",
+        element: (
+          <PrivateRoute>
+            <DashboardAllEvent />,
+          </PrivateRoute>
+        ),
+      },
+      
      
 
       {

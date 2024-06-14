@@ -26,25 +26,25 @@ function DashboardSideBar() {
         <hr className="bg-blue-100 h-1" />
 
         <li className="btn text-lg p-0 flex  w-full h-full hover:border hover:border-l-8 hover:border-l-blue-300 transform transition-all duration-300">
-          <Link className="w-full h-full " to="/dashboard/add-products">
+          <Link className="w-full h-full " to="/dashboard/add-event">
             {" "}
-            <IoAddCircle /> Add Products
+            <IoAddCircle /> Add Event
           </Link>
         </li>
         <hr className="bg-blue-100 h-1" />
 
         <li className="btn text-lg p-0 flex  w-full h-full hover:border hover:border-l-8 hover:border-l-blue-300 transform transition-all duration-300">
-          <Link className="w-full h-full" to="/dashboard/products">
+          <Link className="w-full h-full" to="/dashboard/events">
             {" "}
             <MdAllInbox />
-            All Products
+            All Events
           </Link>
         </li>
      
 
         <hr className="bg-blue-100 h-1" />
         <li className="btn text-lg p-0 flex  w-full h-full hover:border hover:border-l-8 hover:border-l-blue-300 transform transition-all duration-300">
-          <Link className="w-full h-full" to="/dashboard/orders">
+          <Link className="w-full h-full" to="/dashboard/order">
             {" "}
             <GrOrderedList /> Orders
           </Link>

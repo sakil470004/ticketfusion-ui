@@ -23,7 +23,7 @@ function AllEvent() {
          Here is list of all events. Take a look Or Create A new Events
         </p>
       </div>
-      <Link to={"/events"} className="btn text-xl  text-white bg-blue-900  border-b-4  hover:border-b-blue-900 hover:bg-blue-700 flex items-center justify-center">
+      <Link to={"/dashboard/add-event"} className="btn text-xl  text-white bg-blue-900  border-b-4  hover:border-b-blue-900 hover:bg-blue-700 flex items-center justify-center">
           Create New Event <CgAdd/>
         </Link>
     </div>
