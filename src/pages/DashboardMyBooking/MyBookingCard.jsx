@@ -35,16 +35,17 @@ function MyBookingCard({ event ,handleDelete}) {
         </p>
         <p className="text-lg font-semibold">{event?.ticketNumber} Ticket Booked --- Cost ${event?.price}</p>
      
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center mt-2">
           <Link
             to={`/events/${event?.eventId}`}
-            className="btn bg-sky-500 text-white btn-outline btn-sm mt-2 "
+            className="btn btn-xs bg-sky-500 text-white btn-outline "
           >
             See Details
           </Link>
+          <button className="btn btn-xs px-4 btn-warning text-white ">Pay</button>
           <button
             onClick={() => handleDelete(event?._id)}
-            className="btn font-bold btn-error btn-outline btn-sm mt-2"
+            className="btn font-bold  btn-error btn-outline btn-xs"
           >
             Delete
           </button>

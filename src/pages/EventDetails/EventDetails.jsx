@@ -120,8 +120,8 @@ function EventDetails() {
         </div>
         <div>
           {/* card for old booking information */}
-          {!isEmpty(booking) && (<div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 relative">
-            <Link to={`/dashboard/showbooking/${event?._id}`} className="badge -top-3 -right-3 absolute badge-md badge-accent z-30 text-white font-bold">Guest List</Link>
+          {!isEmpty(booking) && (<div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 ">
+         
             <div className="card-body">
               <h2 className="card-title">Previous Booking Details</h2>
 
@@ -133,6 +133,13 @@ function EventDetails() {
                   <span className="text-xl">{booking?.ticketNumber}</span>
                 </div>
               </div>
+              <div className="flex justify-between items-center mt-2">
+              <Link to={`/dashboard/booking`} className="btn btn-xs bg-sky-400 z-30 text-white font-bold">See My Booking</Link>
+              <Link to={`/dashboard/showbooking/${event?._id}`} className="btn btn-xs btn-accent z-30 text-white font-bold">Guest List</Link>
+              
+                <button className="btn btn-xs btn-warning text-white ">Pay</button>
+
+                </div>
             </div>
           </div>)}
           <div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 relative">
