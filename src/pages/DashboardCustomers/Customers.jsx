@@ -3,7 +3,7 @@ import  { useEffect, useState } from "react";
 function Customers() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://ticketfusion-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);

@@ -18,7 +18,7 @@ const CheckoutForm = ({ cart, price }) => {
   useEffect(() => {
     if (price > 0) {
       const token = localStorage.getItem("token");
-      fetch("http://localhost:5000/create-payment-intent", {
+      fetch("https://ticketfusion-server.vercel.app/create-payment-intent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const CheckoutForm = ({ cart, price }) => {
         status: "service pending",
         curseDetails: cart,
       };
-      fetch("http://localhost:5000/payments", {
+      fetch("https://ticketfusion-server.vercel.app/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",

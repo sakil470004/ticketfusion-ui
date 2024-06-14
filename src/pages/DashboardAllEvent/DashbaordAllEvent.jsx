@@ -10,7 +10,7 @@ function DashboardAllEvent() {
   const [events, setEvents] = useState([]);
   const { isEmpty } = useFunction();
   useEffect(() => {
-    fetch("http://localhost:5000/events")
+    fetch("https://ticketfusion-server.vercel.app/events")
       .then((res) => res.json())
       .then((data) => {
         data.reverse();
@@ -19,7 +19,7 @@ function DashboardAllEvent() {
   }, []);
   const handleDelete = (id) => {
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:5000/events/${id}`, {
+    fetch(`https://ticketfusion-server.vercel.app/events/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

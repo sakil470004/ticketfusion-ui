@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function DiscoverEvent() {
   const [events, setEvents] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/events")
+    fetch("https://ticketfusion-server.vercel.app/events")
       .then((res) => res.json())
       .then((data) => {
         const shuffleArray = (array) => {

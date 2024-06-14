@@ -6,14 +6,14 @@ function ShowBooking() {
   const [booking, setBooking] = useState([]);
   const [event, setEvent] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/filterByEventID/${id}`)
+    fetch(`https://ticketfusion-server.vercel.app/filterByEventID/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setBooking(data);
       });
   }, [id]);
   useEffect(() => {
-    fetch(`http://localhost:5000/events/${id}`)
+    fetch(`https://ticketfusion-server.vercel.app/events/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setEvent(data);

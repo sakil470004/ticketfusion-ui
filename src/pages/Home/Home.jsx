@@ -9,7 +9,7 @@ import GetStated from "./GetStated";
 function Home() {
   const [comments, setComments] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/comments")
+    fetch("https://ticketfusion-server.vercel.app/comments")
       .then((res) => res.json())
       .then((data) => {
         const newData = data.reverse();

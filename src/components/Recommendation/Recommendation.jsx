@@ -9,7 +9,7 @@ function Recommendation() {
   const [products, setProducts] = useState([]);
   const { isEmpty } = useFunction();
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://ticketfusion-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         // as all category don't have product so give better experience for user

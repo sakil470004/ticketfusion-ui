@@ -11,7 +11,7 @@ const Payment = () => {
     let { paymentId } = useParams();
     const [ticket, setTicket] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/singleSitBook/${paymentId}`)
+        fetch(`https://ticketfusion-server.vercel.app/singleSitBook/${paymentId}`)
         .then(res=>res.json())
         .then(data=>setTicket(data))
     }, [paymentId])

@@ -37,7 +37,7 @@ function EventDetails() {
       email: user?.email,
     };
     console.log(booking);
-    fetch("http://localhost:5000/sitBook", {
+    fetch("https://ticketfusion-server.vercel.app/sitBook", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,14 +55,14 @@ function EventDetails() {
       });
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/sitBook/${id}/${user.email}`)
+    fetch(`https://ticketfusion-server.vercel.app/sitBook/${id}/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setBooking(data);
       });
   }, [user.email, id, reload]);
   useEffect(() => {
-    fetch(`http://localhost:5000/events/${id}`)
+    fetch(`https://ticketfusion-server.vercel.app/events/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setEvent(data);

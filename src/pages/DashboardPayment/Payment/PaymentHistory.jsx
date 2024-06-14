@@ -8,7 +8,7 @@ const PaymentHistory = () => {
   
     const { user } =useAuth();
     useEffect(() => {
-        fetch(`http://localhost:5000/paymentHistory/${user?.email}`)
+        fetch(`https://ticketfusion-server.vercel.app/paymentHistory/${user?.email}`)
             .then(res => res.json())
             .then(data => setDetails(data))
     }, [user?.email])

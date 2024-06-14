@@ -7,7 +7,7 @@ function EditEvent() {
   const [event, setEvent] = useState({});
   const navigation = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:5000/events/${id}`)
+    fetch(`https://ticketfusion-server.vercel.app/events/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setEvent(data);
@@ -33,7 +33,7 @@ function EditEvent() {
       ticketType: ticketType,
     };
     try {
-      const response = await fetch(`http://localhost:5000/events/${id}`, {
+      const response = await fetch(`https://ticketfusion-server.vercel.app/events/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

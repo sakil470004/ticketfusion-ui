@@ -13,7 +13,7 @@ function MyBooking() {
   const { isEmpty } = useFunction();
   const { user } = useAuth();
   useEffect(() => {
-    fetch(`http://localhost:5000/filterByEmail/${user?.email}`)
+    fetch(`https://ticketfusion-server.vercel.app/filterByEmail/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         data.reverse();
@@ -22,7 +22,7 @@ function MyBooking() {
   }, [user.email]);
   const handleDelete = (id) => {
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:5000/sitBook/${id}`, {
+    fetch(`https://ticketfusion-server.vercel.app/sitBook/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

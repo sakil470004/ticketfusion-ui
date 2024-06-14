@@ -6,7 +6,7 @@ import AllEventsCard from "./AllEventsCard"
 function AllEvent() {
     const [events,setEvents] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/events")
+        fetch("https://ticketfusion-server.vercel.app/events")
         .then((res) => res.json())
         .then((data) => {
           data.reverse()
