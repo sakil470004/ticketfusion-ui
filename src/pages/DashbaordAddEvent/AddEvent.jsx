@@ -2,10 +2,11 @@ import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 
 function AddEvent() {
-    const {user}=useAuth()
- 
+  const { user } = useAuth();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token");
     const formData = new FormData(e.target);
     const ticketType = formData.get("price") == 0 ? "Free" : "Paid";
     const data = {
@@ -30,6 +31,7 @@ function AddEvent() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          authorization: "Bearer " + token,
         },
         body: JSON.stringify(data),
       });

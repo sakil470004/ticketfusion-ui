@@ -21,6 +21,7 @@ function EventDetails() {
     "https://www.thedigitalbridges.com/wp-content/uploads/2018/02/tech-conference-768x498.jpg";
 
   const bookNow = () => {
+    const token = localStorage.getItem("token");
     const booking = {
       eventName: event.eventName,
       eventDate: event.eventDate,
@@ -40,6 +41,7 @@ function EventDetails() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: "Bearer " + token,
       },
       body: JSON.stringify(booking),
     })

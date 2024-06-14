@@ -17,7 +17,7 @@ const Navbar = () => {
     });
   };
   const handleProfile = () => {
-    navigate("/dashboard");
+    navigate("/dashboard/booking");
   };
  
   

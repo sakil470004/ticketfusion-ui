@@ -25,13 +25,13 @@ function ShowBooking() {
     <div className="py-8 md:py-10 px-4 bg-cover bg-center h-[calc(100%-200px)]">
       <div className="flex justify-between items-end">
         <span className="text-2xl border-b-4 border-b-sky-600 text-sky-400 md:text-3xl font-semibold uppercase">
-          Show Booking
+          Guest List
         </span>
       </div>
       <div className="mt-8">
         <div className="flex justify-between items-center">
           <span className="text-xl font-semibold text-gray-800">
-            Event Name: {event?.eventName}
+            Event Name: {event?.eventName} . Here is List of All Guest
           </span>
         </div>
         <div className="mt-4">
