@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 function MyBookingCard({ event ,handleDelete}) {
-  const {user}=useAuth();
+  
   const navigation = useNavigate();
   // todo: need change the path to the event related table page
   const handleDetails = () => {
@@ -15,8 +15,9 @@ function MyBookingCard({ event ,handleDelete}) {
   return (
     <div
       
-      className="group card card-compact  bg-base-100 shadow-xl rounded-lg border border-white  hover:border-gray-400 transition-all duration-300"
-    >
+      className="group card card-compact  bg-base-100 shadow-xl rounded-lg border border-white  hover:border-gray-400 transition-all duration-300 relative"
+     >
+     <Link to={`/dashboard/showbooking/${event?.eventId}`} className="badge top-4 right-4 absolute badge-md badge-accent z-30 text-white font-bold">Guest List</Link>
       <div className="justify-center items-center  transition-all duration-700 overflow-hidden">
         <img
           className="object-cover  max-h-full  m-auto rounded-lg group-hover:scale-105 w-full md:h-[250px] group-hover:transform group-hover:duration-700"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineDateRange } from "react-icons/md";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import DiscoverEvent from "../Home/DiscoverEvent";
 import useFunction from "../../hooks/useFunction";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -73,7 +73,8 @@ function EventDetails() {
       <div className="group bg-detailsBg w-full bg-cover rounded-md bg-center">
         <div className="py-10 flex justify-center items-center">
           <div className="bg-base-100 rounded-lg   md:w-1/2  transition-all duration-300">
-            <div className="justify-center items-center transition-all duration-700 w-full overflow-hidden">
+            <div className="justify-center items-center transition-all duration-700 w-full overflow-hidden relative">
+            <Link to={`/dashboard/showbooking/${event?._id}`} className="badge top-4 right-4 absolute badge-md badge-accent z-30 text-white font-bold">Guest List</Link>
               <img
                 className="group-hover:scale-105 object-cover max-h-full transition-all duration-700 m-auto rounded-lg w-full md:min-h-[250px]"
                 src={event?.img || imgHolder}
