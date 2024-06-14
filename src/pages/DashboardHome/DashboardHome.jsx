@@ -14,31 +14,31 @@ function DashboardHome() {
         <div className="bg-white p-5 shadow-md border border-blue-200 rounded-lg text-center">
           <div>
             <h2 className="text-xl ">Total Ticket</h2>
-            <p className="text-lg text-orange-400 font-bold">100</p>
+            <p className="text-lg text-sky-400 font-bold">100</p>
           </div>
         </div>
         <div className="bg-white p-5 shadow-md border border-blue-200 rounded-lg text-center">
           <div>
             <h2 className="text-xl">Book Per Event</h2>
-            <p className="text-lg text-orange-400 font-bold">50</p>
+            <p className="text-lg text-sky-400 font-bold">50</p>
           </div>
         </div>
         <div className="bg-white p-5 shadow-md border border-blue-200 rounded-lg text-center">
           <div>
             <h2 className="text-xl">Total Revenue</h2>
-            <p className="text-lg text-orange-400 font-bold">$5000</p>
+            <p className="text-lg text-sky-400 font-bold">$5000</p>
           </div>
         </div>
         <div className="bg-white p-5 shadow-md border border-blue-200 rounded-lg text-center">
           <div>
             <h2 className="text-xl">Total Users</h2>
-            <p className="text-lg text-orange-400 font-bold">500</p>
+            <p className="text-lg text-sky-400 font-bold">500</p>
           </div>
         </div>
         <div className="bg-white p-5 shadow-md border border-blue-200 rounded-lg text-center">
           <div>
             <h2 className="text-xl">Total Event</h2>
-            <p className="text-lg text-orange-400 font-bold">10</p>
+            <p className="text-lg text-sky-400 font-bold">10</p>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ import PrivateRoute from "./private/PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardHome from "../pages/DashboardHome/DashboardHome";
 import DashboardAllEvent from "../pages/DashboardAllEvent/DashbaordAllEvent";
+import AddEvent from "../pages/DashbaordAddEvent/AddEvent";
 
 export const router = createBrowserRouter([
   {
@@ -60,7 +61,7 @@ export const router = createBrowserRouter([
         path: "add-event",
         element: (
           <PrivateRoute>
-            <DashboardAllEvent />,
+            <AddEvent />,
           </PrivateRoute>
         ),
       },
