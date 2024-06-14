@@ -17,7 +17,7 @@ function EditEvent() {
     const handleEdit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const ticketType = formData.get("price") === 0 ? "Free" : "Paid";
+        const ticketType = formData.get("price") == 0 ? "Free" : "Paid";
         const data = {
             eventName: formData.get("eventName"),
             eventDate: formData.get("eventDate"),
@@ -52,7 +52,7 @@ function EditEvent() {
   return (
   <div className="py-8 md:py-10 px-4 bg-cover bg-center">
     <span className="text-2xl border-b-4 border-b-sky-600 text-sky-400 md:text-3xl font-semibold uppercase">
-      Edit Event
+    Update Event
     </span>
     <div className="mt-8 ">
       <form onSubmit={handleEdit} className="grid md:grid-cols-4 gap-6">

@@ -10,12 +10,14 @@ function Customers() {
       });
   }, []);
   return (
-    <div className="my-6 ">
-      <h2 className="text-2xl font-bold text-orange-400 uppercase">
+    <div className="py-8 md:py-10 px-4 bg-cover bg-center">
+      <span className="text-2xl border-b-4 border-b-sky-600 text-sky-400 md:text-3xl font-semibold uppercase">
         User List
-      </h2>
+      </span>
 
-      <div className="overflow-x-auto mt-6">
+
+
+      <div className="overflow-x-auto mt-8">
         <table className="table ">
           {/* head */}
           <thead>

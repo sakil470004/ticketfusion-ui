@@ -7,7 +7,7 @@ function AddEvent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const ticketType = formData.get("price") === 0 ? "Free" : "Paid";
+    const ticketType = formData.get("price") == 0 ? "Free" : "Paid";
     const data = {
       eventName: formData.get("eventName"),
       eventDate: formData.get("eventDate"),
