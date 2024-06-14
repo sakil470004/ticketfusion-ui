@@ -44,9 +44,9 @@ function DashboardSideBar() {
 
         <hr className="bg-blue-100 h-1" />
         <li className="btn text-lg p-0 flex  w-full h-full hover:border hover:border-l-8 hover:border-l-blue-300 transform transition-all duration-300">
-          <Link className="w-full h-full" to="/dashboard/order">
+          <Link className="w-full h-full" to="/dashboard/booking">
             {" "}
-            <GrOrderedList /> Orders
+            <GrOrderedList /> My Booking
           </Link>
         </li>
 
@@ -59,13 +59,13 @@ function DashboardSideBar() {
           </Link>
         </li>
         <hr className="bg-blue-100 h-1" />
-        <li className="btn text-lg p-0 flex  w-full h-full hover:border hover:border-l-8 hover:border-l-blue-300 transform transition-all duration-300">
+        {/* <li className="btn text-lg p-0 flex  w-full h-full hover:border hover:border-l-8 hover:border-l-blue-300 transform transition-all duration-300">
           <Link className="w-full h-full" to="/dashboard/profile">
             {" "}
             <BsPeople /> User Profile
           </Link>
         </li>
-        <hr className="bg-blue-100 h-1" />
+        <hr className="bg-blue-100 h-1" /> */}
 
         <li className="btn text-lg p-0 flex  w-full h-full hover:border hover:border-l-8 hover:border-l-blue-300 transform transition-all duration-300">
           <Link className="w-full h-full" to="/">

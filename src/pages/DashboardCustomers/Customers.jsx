@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 
 function Customers() {
   const [users, setUsers] = useState([]);
@@ -62,7 +62,7 @@ function Customers() {
                   {usr?.phone||"N/A"}
                 </span>
               </td>
-              <td>{usr?.email}</td>
+              <td>{usr?.email ||"N/A"}</td>
               <th>
                 <button className="btn btn-ghost btn-xs">details</button>
               </th>

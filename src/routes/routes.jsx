@@ -14,6 +14,7 @@ import DashboardHome from "../pages/DashboardHome/DashboardHome";
 import DashboardAllEvent from "../pages/DashboardAllEvent/DashbaordAllEvent";
 import AddEvent from "../pages/DashbaordAddEvent/AddEvent";
 import EditEvent from "../pages/DashboardEditEvent/EditEvent";
+import Customers from "../pages/DashboardCustomers/Customers";
 
 export const router = createBrowserRouter([
   {
@@ -74,8 +75,23 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-     
-
+     {
+        path: "customers",
+        element: (
+          <PrivateRoute>
+            <Customers />,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "booking",
+        element: (
+          <PrivateRoute>
+            <Customers />,
+          </PrivateRoute>
+        ),
+      },
+      
       {
         path: "*",
         element: <ErrorPage />,
