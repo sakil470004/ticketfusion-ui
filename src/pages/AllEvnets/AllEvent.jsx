@@ -9,6 +9,7 @@ function AllEvent() {
         fetch("http://localhost:5000/events")
         .then((res) => res.json())
         .then((data) => {
+          data.reverse()
             setEvents(data)
         })
     }, [])

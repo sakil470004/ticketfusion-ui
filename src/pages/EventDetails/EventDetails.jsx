@@ -3,9 +3,12 @@ import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineDateRange } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import DiscoverEvent from "../Home/DiscoverEvent";
+import useFunction from "../../hooks/useFunction";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 function EventDetails() {
   const { id } = useParams();
+  const {isEmpty} = useFunction();
   const imgHolder =
     "https://www.thedigitalbridges.com/wp-content/uploads/2018/02/tech-conference-768x498.jpg";
   const [event, setEvent] = useState({});
@@ -17,6 +20,9 @@ function EventDetails() {
         setEvent(data);
       });
   }, [id]);
+  if(isEmpty(event))
+    return<LoadingSpinner/>
+
 
   return (
     <div className="px-6">
@@ -67,7 +73,8 @@ function EventDetails() {
           </div>
         </div>
         <div>
-          <div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300">
+          <div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 relative">
+          <button className="badge badge-warning text-md font-bold p-3 uppercase  absolute -top-2 -right-4 text-white">{event?.ticketType}</button>
             <div className="card-body">
               <h2 className="card-title">Event Details</h2>
               <p className="flex text-red-500 gap-1 items-center">
