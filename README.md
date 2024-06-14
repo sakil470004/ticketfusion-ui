@@ -1,4 +1,4 @@
-```markdown
+
 # TicketFusion
 
 Welcome to TicketFusion, a ticket booking dashboard built with the MERN (MongoDB, Express.js, React.js, Node.js) stack. This application allows users to view available events, book tickets, and manage their bookings through an intuitive interface. 
@@ -6,15 +6,21 @@ Welcome to TicketFusion, a ticket booking dashboard built with the MERN (MongoDB
 **Live Demo:** [TicketFusion](https://ticketfusion-ui.vercel.app/)
 
 ## Table of Contents
-- [Features](#features)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Available Scripts](#available-scripts)
-- [Project Structure](#project-structure)
-- [API Endpoints](#api-endpoints)
-- [Additional Requirements](#additional-requirements)
-- [Contributing](#contributing)
-- [License](#license)
+- [TicketFusion](#ticketfusion)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Available Scripts](#available-scripts)
+  - [Project Structure](#project-structure)
+  - [API Endpoints](#api-endpoints)
+    - [Comments](#comments)
+    - [Events](#events)
+    - [Seat Booking](#seat-booking)
+    - [Users](#users)
+  - [Additional Requirements](#additional-requirements)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Features
 
