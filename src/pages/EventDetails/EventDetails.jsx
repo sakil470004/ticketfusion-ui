@@ -15,6 +15,7 @@ function EventDetails() {
   const [event, setEvent] = useState({});
   const [booking, setBooking] = useState({});
   const { user } = useAuth();
+  const [reload, setReload] = useState(false);
 
   const imgHolder =
     "https://www.thedigitalbridges.com/wp-content/uploads/2018/02/tech-conference-768x498.jpg";
@@ -24,7 +25,7 @@ function EventDetails() {
       eventName: event.eventName,
       eventDate: event.eventDate,
       eventTime: event.eventTime,
-      price: event.price,
+      price: event.price*currentTicket,
       ticketType: event.ticketType,
       img: event.img,
       venue: event.venue,
@@ -34,6 +35,7 @@ function EventDetails() {
       eventId: event?._id,
       email: user?.email,
     };
+    console.log(booking);
     fetch("http://localhost:5000/sitBook", {
       method: "POST",
       headers: {
@@ -45,6 +47,8 @@ function EventDetails() {
       .then((data) => {
         if (data) {
           toast.success(data?.message);
+          setReload((prev) => !prev);
+          setCurrentTicket(1);
         }
       });
   };
@@ -54,7 +58,7 @@ function EventDetails() {
       .then((data) => {
         setBooking(data);
       });
-  }, [user.email, id]);
+  }, [user.email, id, reload]);
   useEffect(() => {
     fetch(`http://localhost:5000/events/${id}`)
       .then((res) => res.json())
@@ -113,20 +117,20 @@ function EventDetails() {
         </div>
         <div>
           {/* card for old booking information */}
-          <div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 relative">
+          {!isEmpty(booking) && (<div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 relative">
             <div className="card-body">
               <h2 className="card-title">Previous Booking Details</h2>
-              
+
               <div className="flex justify-between">
                 <h2 className="text-xl text-yellow-600">
-                  Price: ${(booking?.price * booking?.ticketNumber).toFixed(2)}
+                  Price: ${booking?.price?.toFixed(2)}
                 </h2>
                 <div className="flex gap-2 items-center">
                   <span className="text-xl">{booking?.ticketNumber}</span>
                 </div>
               </div>
             </div>
-          </div>
+          </div>)}
           <div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 relative">
             <button className="badge badge-warning text-md font-bold p-3 uppercase  absolute -top-2 -right-4 text-white">
               {event?.ticketType}
