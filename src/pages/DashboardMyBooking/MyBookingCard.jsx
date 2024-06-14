@@ -8,7 +8,7 @@ function MyBookingCard({ event ,handleDelete}) {
   const navigation = useNavigate();
   // todo: need change the path to the event related table page
   const handleDetails = () => {
-    // navigation(`/events/${event._id}`);
+    navigation(`/events/${event.eventId}`);
   };
   const imgHolder =
     "https://www.thedigitalbridges.com/wp-content/uploads/2018/02/tech-conference-768x498.jpg";
@@ -32,6 +32,7 @@ function MyBookingCard({ event ,handleDelete}) {
         <p className="flex gap-1 items-center line">
           <CiLocationOn /> {(event?.venue?.address).slice(0, 30)}....
         </p>
+        <p className="text-lg font-semibold">{event?.ticketNumber} Ticket Booked --- Cost ${event?.price}</p>
      
         <div className="flex justify-between">
           <Link

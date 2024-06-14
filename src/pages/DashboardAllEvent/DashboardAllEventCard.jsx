@@ -8,7 +8,7 @@ function DashboardAllEventCard({ event ,handleDelete}) {
   const navigation = useNavigate();
   // todo: need change the path to the event related table page
   const handleDetails = () => {
-    // navigation(`/events/${event._id}`);
+    navigation(`/dashboard/showbooking/${event._id}`);
   };
   const imgHolder =
     "https://www.thedigitalbridges.com/wp-content/uploads/2018/02/tech-conference-768x498.jpg";

@@ -11,7 +11,7 @@ import useAuth from "../../hooks/useAuth";
 function MyBooking() {
   const [events, setEvents] = useState([]);
   const { isEmpty } = useFunction();
-  const {user}=useAuth();
+  const { user } = useAuth();
   useEffect(() => {
     fetch(`http://localhost:5000/filterByEmail/${user?.email}`)
       .then((res) => res.json())
@@ -48,12 +48,9 @@ function MyBooking() {
   return (
     <div className="py-8 md:py-10 px-4 bg-cover bg-center">
       <div className="flex justify-between items-end">
-        <div className="">
-          <span className="text-2xl border-b-4 border-b-sky-600 text-sky-400 md:text-3xl font-semibold uppercase">
-            My Booking Events
-          </span>
-        </div>
-    
+        <span className="text-2xl border-b-4 border-b-sky-600 text-sky-400 md:text-3xl font-semibold uppercase">
+          My Booking Events
+        </span>
       </div>
       <div className="grid md:grid-cols-3 mt-8 gap-5">
         {events.map((event) => (

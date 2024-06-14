@@ -16,6 +16,7 @@ import AddEvent from "../pages/DashbaordAddEvent/AddEvent";
 import EditEvent from "../pages/DashboardEditEvent/EditEvent";
 import Customers from "../pages/DashboardCustomers/Customers";
 import MyBooking from "../pages/DashboardMyBooking/MyBooking";
+import ShowBooking from "../pages/DashboardShowBooking/ShowBooking";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,7 @@ export const router = createBrowserRouter([
       { path: "/register", element: <Registration /> },
       {path: "/events", element: <AllEvent />},
       {path: "/events/:id", element: <PrivateRoute><EventDetails /></PrivateRoute>},
+   
     ],
   },
   {
@@ -89,6 +91,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyBooking />,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "showbooking/:id",
+        element: (
+          <PrivateRoute>
+            <ShowBooking />,
           </PrivateRoute>
         ),
       },

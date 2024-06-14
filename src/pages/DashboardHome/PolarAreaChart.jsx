@@ -55,7 +55,7 @@ const PolarAreaChart = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-16  rounded-lg">
-      <h2 className="text-2xl font-bold mb-4  text-center text-yellow-500">Yearly Sales Data</h2>
+      <h2 className="text-2xl font-bold mb-4  text-center text-sky-500">Yearly Sales Data</h2>
       <PolarArea data={data} options={options} />
     </div>
   );

@@ -26,7 +26,7 @@ const BarChart = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-16  rounded-lg">
-      <h2 className="text-2xl text-center font-bold mb-4  text-yellow-500">Last Month's Sales</h2>
+      <h2 className="text-2xl text-center font-bold mb-4  text-sky-500">Last Month's Sales</h2>
       <Bar data={data} options={options} />
     </div>
   );
