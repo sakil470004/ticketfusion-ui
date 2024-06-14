@@ -55,7 +55,7 @@ function MyBooking() {
         {events.map((event) => (
           <MyBookingCard
             handleDelete={handleDelete}
-            key={event.id}
+            key={event._id}
             event={event}
           />
         ))}

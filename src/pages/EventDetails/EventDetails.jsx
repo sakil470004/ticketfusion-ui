@@ -135,9 +135,9 @@ function EventDetails() {
               </div>
               <div className="flex justify-between items-center mt-2">
               <Link to={`/dashboard/booking`} className="btn btn-xs bg-sky-400 z-30 text-white font-bold">See My Booking</Link>
-              <Link to={`/dashboard/showbooking/${event?._id}`} className="btn btn-xs btn-accent z-30 text-white font-bold">Guest List</Link>
+              <Link to={`/dashboard/showbooking/${event?._id}`} className="btn btn-xs btn-accent  text-white font-bold">Guest List</Link>
               
-                <button className="btn btn-xs btn-warning text-white ">Pay</button>
+                <Link to='/dashboard/booking' className="btn btn-xs btn-warning text-white px-3">Pay</Link>
 
                 </div>
             </div>

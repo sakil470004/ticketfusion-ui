@@ -9,15 +9,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { app } from "../firebase/firebase.config";
-import {
-  addToDb,
-  removeFromDb,
-  getShoppingCart,
-  deleteShoppingCart,
-  cartTotalItems,
-  cartTotalType,
-  changeDesiredQuantity,
-} from "../fakedbLocalStorage/fakedb";
+
 
 export const AuthContext = createContext(null);
 
@@ -71,13 +63,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     logout,
     loading,
-    cartTotalType,
-    addToDb,
-    removeFromDb,
-    getShoppingCart,
-    deleteShoppingCart,
-    cartTotalItems,
-    changeDesiredQuantity,
+
     buyItems,
     setBuyItems,
   };

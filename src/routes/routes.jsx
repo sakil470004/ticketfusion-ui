@@ -17,6 +17,11 @@ import EditEvent from "../pages/DashboardEditEvent/EditEvent";
 import Customers from "../pages/DashboardCustomers/Customers";
 import MyBooking from "../pages/DashboardMyBooking/MyBooking";
 import ShowBooking from "../pages/DashboardShowBooking/ShowBooking";
+import Payment from "../pages/DashboardPayment/Payment/Payment";
+import PaymentHistory from "../pages/DashboardPayment/Payment/PaymentHistory";
+
+
+
 
 export const router = createBrowserRouter([
   {
@@ -102,6 +107,23 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "paymentHistory",
+        element: (
+          <PrivateRoute>
+            <PaymentHistory/>,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment/:paymentId",
+        element: (
+          <PrivateRoute>
+            <Payment />,
+          </PrivateRoute>
+        ),
+      },
+     
       
       {
         path: "*",

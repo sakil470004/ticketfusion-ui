@@ -42,7 +42,7 @@ function MyBookingCard({ event ,handleDelete}) {
           >
             See Details
           </Link>
-          <button className="btn btn-xs px-4 btn-warning text-white ">Pay</button>
+          <Link to={`/dashboard/payment/${event?._id}`} className="btn btn-xs px-4 btn-warning text-white ">Pay</Link>
           <button
             onClick={() => handleDelete(event?._id)}
             className="btn font-bold  btn-error btn-outline btn-xs"
