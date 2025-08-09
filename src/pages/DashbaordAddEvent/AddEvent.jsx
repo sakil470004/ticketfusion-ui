@@ -143,7 +143,7 @@ function AddEvent() {
               htmlFor="event-img"
               className="block text-sm font-medium text-gray-700"
             >
-              Event Image
+              Event Image URL
             </label>
             <input
               required

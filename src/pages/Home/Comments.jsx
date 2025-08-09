@@ -19,10 +19,13 @@ function Comments({comments }) {
   }, [currentIndex]);
   return (
     <div className="py-8 md:py-10  bg-cover bg-center">
-      <div className="">
-        <span className="text-2xl border-b-4 border-b-sky-600 text-sky-400 md:text-3xl font-semibold uppercase">
-          See Our Clients Comment
-        </span>
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold text-blue-600">
+          See Our Clients&apos; Comments
+        </h2>
+        <p className="text-lg text-gray-600">
+          What our clients are saying about us
+        </p>
       </div>
 
       <div className=" w-full overflow-hidden my-8">

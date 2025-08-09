@@ -82,7 +82,7 @@ function DashboardSideBar() {
         </li>
         <hr className="bg-blue-100 h-1" />
 
-        <Link to={'/home'}> <img src={logo} alt="logo" className="w-1/2 rounded-full mx-auto" /></Link>
+        <Link to={'/'}> <img src={logo} alt="logo" className="w-1/2 rounded-full mx-auto" /></Link>
       </ul>
 
   );
