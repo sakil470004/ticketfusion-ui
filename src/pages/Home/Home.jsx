@@ -5,7 +5,9 @@ import Cover from "./Cover";
 import DiscoverEvent from "./DiscoverEvent";
 import Futures from "./Futures";
 import GetStated from "./GetStated";
+import FeaturedEvents from "./FeaturedEvents";
 import Statistics from "./Statistics";
+import PartnersClients from "./PartnersClients";
 
 function Home() {
   const [comments, setComments] = useState([]);
@@ -38,7 +40,9 @@ function Home() {
       <Futures/>
       <Comments comments={comments}/>
       <Accordion />
+      <FeaturedEvents />
       <Statistics />
+      <PartnersClients />
     </div>
   );
 }
