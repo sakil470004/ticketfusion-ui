@@ -33,25 +33,25 @@ const Accordion = () => {
   ];
 
   return (
-    <div className="py-8 md:py-10  bg-cover bg-center">
-    <div className="">
-      <span className="text-2xl border-b-4 border-b-sky-600 text-sky-400 md:text-3xl font-semibold uppercase">
-     Got Questions? We Have Answers
-      </span>
-    </div>
-      <div className="mt-6 flex flex-col gap-2 border-l-4 pl-3 border-l-sky-200">
+    <div className="py-12 bg-gray-100">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold text-blue-600">
+          Got Questions? We Have Answers
+        </h2>
+        <p className="text-lg text-gray-600">
+          Find answers to the most frequently asked questions below.
+        </p>
+      </div>
+      <div className="max-w-4xl mx-auto space-y-4">
         {faqArray.map((faq) => (
           <div
-            className="collapse collapse-arrow p-0  bg-gray-50 shadow-sm border-2 border-sky-100"
             key={faq.id}
+            className="border border-gray-300 rounded-lg p-4 bg-white shadow-md"
           >
-            <input type="radio" name="my-accordion-2" defaultChecked />
-            <div className="collapse-title text-xl font-medium p-2">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
               {faq.question}
-            </div>
-            <div className="collapse-content border-b-2 border-sky-200">
-              <p>{faq.answer}</p>
-            </div>
+            </h3>
+            <p className="text-gray-600">{faq.answer}</p>
           </div>
         ))}
       </div>
