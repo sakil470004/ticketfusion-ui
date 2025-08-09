@@ -36,7 +36,6 @@ function EventDetails() {
       eventId: event?._id,
       email: user?.email,
     };
-    console.log(booking);
     fetch("https://ticketfusion-server.vercel.app/sitBook", {
       method: "POST",
       headers: {
@@ -54,6 +53,7 @@ function EventDetails() {
         }
       });
   };
+
   useEffect(() => {
     fetch(`https://ticketfusion-server.vercel.app/sitBook/${id}/${user.email}`)
       .then((res) => res.json())
@@ -61,6 +61,7 @@ function EventDetails() {
         setBooking(data);
       });
   }, [user.email, id, reload]);
+
   useEffect(() => {
     fetch(`https://ticketfusion-server.vercel.app/events/${id}`)
       .then((res) => res.json())
@@ -68,13 +69,14 @@ function EventDetails() {
         setEvent(data);
       });
   }, [id]);
+
   if (isEmpty(event)) return <LoadingSpinner />;
 
   return (
     <div className="px-6">
       <div className="group bg-detailsBg w-full bg-cover rounded-md bg-center">
         <div className="py-10 flex justify-center items-center">
-          <div className="bg-base-100 rounded-lg   md:w-1/2  transition-all duration-300">
+          <div className="bg-white rounded-lg shadow-lg md:w-1/2 transition-all duration-300">
             <div className="justify-center items-center transition-all duration-700 w-full overflow-hidden relative">
               <Link
                 to={`/dashboard/showbooking/${event?._id}`}
@@ -92,69 +94,75 @@ function EventDetails() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 md:gap-16 gap-5">
-        <div className="mt-4 md:col-span-2">
-          <h2 className="text-5xl font-semibold my-4">{event?.eventName}</h2>
+      <div className="grid md:grid-cols-3 md:gap-16 gap-5 mt-8">
+        <div className="md:col-span-2">
+          <h2 className="text-5xl font-bold text-blue-600 mb-6">
+            {event?.eventName}
+          </h2>
           {event?.description && (
-            <>
-              <p className="flex text-2xl font-semibold mt-6 mb-4 gap-1 items-center">
+            <div className="mb-6">
+              <h3 className="text-2xl font-semibold text-gray-700 mb-2">
                 Description
-              </p>
-              <p>{event?.description}</p>
-            </>
+              </h3>
+              <p className="text-gray-600">{event?.description}</p>
+            </div>
           )}
-          <p className="flex text-2xl font-semibold mt-6 mb-4 gap-1 items-center">
-            Date and Time
-          </p>
-          <p className="flex text-xl text-red-500 gap-1 items-center">
-            <MdOutlineDateRange /> {event?.eventDate} - {event?.eventTime}
-          </p>
-          <p className="flex text-2xl font-semibold mt-6 mb-4 gap-1 items-center">
-            Location
-          </p>
-          <p className="flex gap-1 items-center">
-            <CiLocationOn /> {event?.venue?.address}
-          </p>
-          <p className="flex text-2xl font-semibold mt-6 mb-4 gap-1 items-center">
-            Organizer Info
-          </p>
-          <div className="bg-slate-200 shadow-lg p-8 text-xl max-w-sm">
-            <p>Name: {event?.organizerName}</p>
-            <p>Contact: {event?.organizerEmail}</p>
+          <div className="mb-6">
+            <h3 className="text-2xl font-semibold text-gray-700 mb-2">
+              Date and Time
+            </h3>
+            <p className="text-xl text-red-500 flex items-center gap-2">
+              <MdOutlineDateRange /> {event?.eventDate} - {event?.eventTime}
+            </p>
+          </div>
+          <div className="mb-6">
+            <h3 className="text-2xl font-semibold text-gray-700 mb-2">
+              Location
+            </h3>
+            <p className="text-gray-600 flex items-center gap-2">
+              <CiLocationOn /> {event?.venue?.address}
+            </p>
+          </div>
+          <div className="mb-6">
+            <h3 className="text-2xl font-semibold text-gray-700 mb-2">
+              Organizer Info
+            </h3>
+            <div className="bg-gray-100 shadow-md p-6 rounded-lg">
+              <p className="text-gray-700">Name: {event?.organizerName}</p>
+              <p className="text-gray-700">Contact: {event?.organizerEmail}</p>
+            </div>
           </div>
         </div>
         <div>
           {/* card for old booking information */}
           {!isEmpty(booking) && (
-            <div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 ">
+            <div className="card bg-white shadow-lg rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-300 mb-6">
               <div className="card-body">
-                <h2 className="card-title">Previous Booking Details</h2>
-
-                <div className="flex justify-between">
-                  <h2 className="text-xl text-yellow-600">
+                <h3 className="card-title text-lg font-bold text-gray-700 mb-4">
+                  Previous Booking Details
+                </h3>
+                <div className="flex justify-between items-center mb-4">
+                  <p className="text-xl text-yellow-600 font-semibold">
                     Price: ${booking?.price?.toFixed(2)}
-                  </h2>
-                  <div className="flex gap-2 items-center">
-                    <span className="text-xl">{booking?.ticketNumber}</span>
-                  </div>
+                  </p>
+                  <p className="text-gray-700">Tickets: {booking?.ticketNumber}</p>
                 </div>
-                <div className="flex justify-between items-center mt-2">
+                <div className="flex justify-between items-center">
                   <Link
                     to={`/dashboard/booking`}
-                    className="btn btn-xs bg-sky-400 z-30 text-white font-bold"
+                    className="btn btn-sm bg-blue-500 text-white hover:bg-blue-600"
                   >
                     See My Booking
                   </Link>
                   <Link
                     to={`/dashboard/showbooking/${event?._id}`}
-                    className="btn btn-xs btn-accent  text-white font-bold"
+                    className="btn btn-sm bg-green-500 text-white hover:bg-green-600"
                   >
                     Guest List
                   </Link>
-
                   <Link
                     to="/dashboard/booking"
-                    className="btn btn-xs btn-warning text-white px-3"
+                    className="btn btn-sm bg-yellow-500 text-white hover:bg-yellow-600"
                   >
                     Pay
                   </Link>
@@ -162,35 +170,37 @@ function EventDetails() {
               </div>
             </div>
           )}
-          <div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 relative">
-            <button className="badge badge-warning text-md font-bold p-3 uppercase  absolute -top-2 -right-4 text-white">
-              {event?.ticketType}
-            </button>
-            <div className="card-body">
-              <h2 className="card-title">Event Details</h2>
-              <p className="flex text-red-500 gap-1 items-center">
+          <div className="card bg-white shadow-lg rounded-lg border border-gray-200 hover:border-gray-400 transition-all duration-300">
+            <div className="card-body relative">
+              <span className="badge badge-warning text-md font-bold p-3 uppercase absolute -top-2 -right-4 text-white">
+                {event?.ticketType}
+              </span>
+              <h3 className="card-title text-lg font-bold text-gray-700 mb-4">
+                Event Details
+              </h3>
+              <p className="text-gray-600 flex items-center gap-2 mb-4">
                 <MdOutlineDateRange /> {event?.eventDate} - {event?.eventTime}
               </p>
-              <p className="flex gap-1 items-center">
+              <p className="text-gray-600 flex items-center gap-2 mb-4">
                 <CiLocationOn /> {event?.venue?.address}
               </p>
-              <div className="flex justify-between">
-                <h2 className="text-xl text-yellow-600">
+              <div className="flex justify-between items-center mb-4">
+                <p className="text-xl text-yellow-600 font-semibold">
                   Price: ${(event?.price * currentTicket).toFixed(2)}
-                </h2>
-                <div className="flex gap-2 items-center">
+                </p>
+                <div className="flex items-center gap-2">
                   <button
                     onClick={() =>
                       setCurrentTicket((prev) => (prev > 1 ? prev - 1 : prev))
                     }
-                    className="btn  text-white bg-sky-400 border-b-4 hover:border-b-sky-500 btn-sm hover:bg-sky-600"
+                    className="btn btn-sm bg-blue-500 text-white hover:bg-blue-600"
                   >
                     -
                   </button>
-                  <span className="text-xl">{currentTicket}</span>
+                  <span className="text-xl font-semibold">{currentTicket}</span>
                   <button
                     onClick={() => setCurrentTicket((prev) => prev + 1)}
-                    className="btn  text-white bg-sky-400 border-b-4 hover:border-b-sky-500 btn-sm hover:bg-sky-600"
+                    className="btn btn-sm bg-blue-500 text-white hover:bg-blue-600"
                   >
                     +
                   </button>
@@ -198,22 +208,22 @@ function EventDetails() {
               </div>
               <button
                 onClick={bookNow}
-                className="btn text-xl text-white bg-sky-400 border-b-4 hover:border-b-sky-500 hover:bg-sky-600"
+                className="btn w-full bg-blue-500 text-white hover:bg-blue-600"
               >
                 Book Now
               </button>
+              <button
+                onClick={() => {
+                  const eventLink = `${window.location.origin}/events/${id}`;
+                  navigator.clipboard.writeText(eventLink);
+                  toast.success("Event link copied to clipboard!");
+                }}
+                className="btn w-full bg-green-500 text-white hover:bg-green-600 mt-4"
+              >
+                Share Event Link
+              </button>
             </div>
           </div>
-          <button
-            onClick={() => {
-              const eventLink = `${window.location.origin}/events/${id}`;
-              navigator.clipboard.writeText(eventLink);
-              toast.success("Event link copied to clipboard!");
-            }}
-            className="btn text-white bg-green-500 hover:bg-green-600 mt-4"
-          >
-            Share Event Link
-          </button>
         </div>
       </div>
       <DiscoverEvent />
