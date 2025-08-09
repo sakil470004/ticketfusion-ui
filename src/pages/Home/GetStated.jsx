@@ -3,7 +3,7 @@ import GetStatedImg from "../../assets/get-stated-photo.jpg";
 
 export default function GetStated() {
   return (
-    <div className="grid md:grid-cols-2 gap-8 items-center py-12 px-6 bg-gray-100">
+    <div className="grid md:grid-cols-2 gap-8 items-center py-12  bg-gray-100">
       <div className="flex justify-center">
         <img
           className="rounded-lg shadow-lg"

@@ -42,7 +42,7 @@ const Accordion = () => {
           Find answers to the most frequently asked questions below.
         </p>
       </div>
-      <div className="max-w-4xl mx-auto space-y-4">
+      <div className=" mx-auto space-y-4">
         {faqArray.map((faq) => (
           <div
             key={faq.id}

@@ -40,8 +40,8 @@ function Home() {
       <Futures/>
       <Comments comments={comments}/>
       <Accordion />
-      <FeaturedEvents />
       <Statistics />
+      <FeaturedEvents />
       <PartnersClients />
     </div>
   );
