@@ -26,7 +26,7 @@ function EventDetails() {
       eventName: event.eventName,
       eventDate: event.eventDate,
       eventTime: event.eventTime,
-      price: event.price*currentTicket,
+      price: event.price * currentTicket,
       ticketType: event.ticketType,
       img: event.img,
       venue: event.venue,
@@ -76,7 +76,12 @@ function EventDetails() {
         <div className="py-10 flex justify-center items-center">
           <div className="bg-base-100 rounded-lg   md:w-1/2  transition-all duration-300">
             <div className="justify-center items-center transition-all duration-700 w-full overflow-hidden relative">
-            <Link to={`/dashboard/showbooking/${event?._id}`} className="badge top-4 right-4 absolute badge-md badge-accent z-30 text-white font-bold">Guest List</Link>
+              <Link
+                to={`/dashboard/showbooking/${event?._id}`}
+                className="badge top-4 right-4 absolute badge-md badge-accent z-30 text-white font-bold"
+              >
+                Guest List
+              </Link>
               <img
                 className="group-hover:scale-105 object-cover max-h-full transition-all duration-700 m-auto rounded-lg w-full md:min-h-[250px]"
                 src={event?.img || imgHolder}
@@ -120,28 +125,43 @@ function EventDetails() {
         </div>
         <div>
           {/* card for old booking information */}
-          {!isEmpty(booking) && (<div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 ">
-         
-            <div className="card-body">
-              <h2 className="card-title">Previous Booking Details</h2>
+          {!isEmpty(booking) && (
+            <div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 ">
+              <div className="card-body">
+                <h2 className="card-title">Previous Booking Details</h2>
 
-              <div className="flex justify-between">
-                <h2 className="text-xl text-yellow-600">
-                  Price: ${booking?.price?.toFixed(2)}
-                </h2>
-                <div className="flex gap-2 items-center">
-                  <span className="text-xl">{booking?.ticketNumber}</span>
+                <div className="flex justify-between">
+                  <h2 className="text-xl text-yellow-600">
+                    Price: ${booking?.price?.toFixed(2)}
+                  </h2>
+                  <div className="flex gap-2 items-center">
+                    <span className="text-xl">{booking?.ticketNumber}</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <Link
+                    to={`/dashboard/booking`}
+                    className="btn btn-xs bg-sky-400 z-30 text-white font-bold"
+                  >
+                    See My Booking
+                  </Link>
+                  <Link
+                    to={`/dashboard/showbooking/${event?._id}`}
+                    className="btn btn-xs btn-accent  text-white font-bold"
+                  >
+                    Guest List
+                  </Link>
+
+                  <Link
+                    to="/dashboard/booking"
+                    className="btn btn-xs btn-warning text-white px-3"
+                  >
+                    Pay
+                  </Link>
                 </div>
               </div>
-              <div className="flex justify-between items-center mt-2">
-              <Link to={`/dashboard/booking`} className="btn btn-xs bg-sky-400 z-30 text-white font-bold">See My Booking</Link>
-              <Link to={`/dashboard/showbooking/${event?._id}`} className="btn btn-xs btn-accent  text-white font-bold">Guest List</Link>
-              
-                <Link to='/dashboard/booking' className="btn btn-xs btn-warning text-white px-3">Pay</Link>
-
-                </div>
             </div>
-          </div>)}
+          )}
           <div className="card  bg-base-100 shadow-xl rounded-lg border  border-white hover:border-gray-400 mt-6 transition-all duration-300 relative">
             <button className="badge badge-warning text-md font-bold p-3 uppercase  absolute -top-2 -right-4 text-white">
               {event?.ticketType}
@@ -184,6 +204,16 @@ function EventDetails() {
               </button>
             </div>
           </div>
+          <button
+            onClick={() => {
+              const eventLink = `${window.location.origin}/events/${id}`;
+              navigator.clipboard.writeText(eventLink);
+              toast.success("Event link copied to clipboard!");
+            }}
+            className="btn text-white bg-green-500 hover:bg-green-600 mt-4"
+          >
+            Share Event Link
+          </button>
         </div>
       </div>
       <DiscoverEvent />
