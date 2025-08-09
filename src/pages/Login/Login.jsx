@@ -1,6 +1,4 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
-
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import GoogleLogin from "../../components/GoogleLogin";
@@ -20,11 +18,8 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email, password);
-
     await signIn(email, password).then(() => {
-      toast.success("Successfully Login!");
-
+      toast.success("Successfully Logged In!");
       navigate(from, { replace: true });
     });
   };
@@ -36,15 +31,15 @@ const Login = () => {
   }, [user, from, navigate]);
 
   return (
-    <form onSubmit={handleSUbmit} className="hero min-h-screen bg-base-200">
+    <form onSubmit={handleSUbmit} className="hero min-h-screen bg-gradient-to-r from-green-500 to-blue-500 text-white">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Log in to your account to access all the features of the app.
+          <h1 className="text-5xl font-extrabold mb-4">Welcome Back!</h1>
+          <p className="text-lg mb-6">
+            Log in to your account to manage your events and tickets effortlessly.
           </p>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card shrink-0 w-full max-w-sm shadow-lg bg-white text-gray-800">
           <div className="card-body">
             <div className="form-control">
               <label className="label font-bold">
@@ -52,8 +47,8 @@ const Login = () => {
               </label>
               <input
                 type="email"
-                placeholder="email"
-                className="input input-bordered"
+                placeholder="Enter your email"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-green-500"
                 name="email"
                 required
               />
@@ -64,8 +59,8 @@ const Login = () => {
               </label>
               <input
                 type="password"
-                placeholder="password"
-                className="input input-bordered"
+                placeholder="Enter your password"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-green-500"
                 name="password"
                 required
               />
@@ -73,7 +68,7 @@ const Login = () => {
 
             <div className="form-control mt-6">
               <input
-                className="btn bg-red-500 text-white"
+                className="btn bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
                 type="submit"
                 value="Login"
               />
@@ -81,10 +76,10 @@ const Login = () => {
             <div className="mt-6">
               <GoogleLogin />
             </div>
-            <div className="mt-6">
+            <div className="mt-6 text-center">
               <p>
-                New here?{" "}
-                <Link to="/register" className="text-red-500">
+                New here?{' '}
+                <Link to="/register" className="text-green-500 hover:underline">
                   Register
                 </Link>
               </p>

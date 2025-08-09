@@ -1,14 +1,12 @@
 import { useState } from "react";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
 import toast from "react-hot-toast";
 import GoogleLogin from "../../components/GoogleLogin";
 import useAuth from "../../hooks/useAuth";
 
 const Registration = () => {
   const [passMatch, setPassMatch] = useState(true);
-  const { createUser, user } = useAuth();
+  const { createUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -27,17 +25,16 @@ const Registration = () => {
       toast.error("Passwords do not match!");
     }
 
-    console.log(email, password, confirm_password);
-
     if (password === confirm_password) {
       createUser(email, password)
         .then((data) => {
-          toast.success("Successfully Login!");
+          toast.success("Successfully Registered!");
 
           const userInfo = {
             name: data.user.displayName,
             email: data.user.email,
           };
+
           fetch("https://ticketfusion-server.vercel.app/users", {
             method: "POST",
             headers: {
@@ -47,7 +44,6 @@ const Registration = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              // added token to loacl storage
               localStorage.setItem("token", data.token);
               navigate(from, { replace: true });
             });
@@ -59,16 +55,15 @@ const Registration = () => {
   };
 
   return (
-    <form onSubmit={handleSUbmit} className="hero min-h-screen bg-base-200">
+    <form onSubmit={handleSUbmit} className="hero min-h-screen bg-gradient-to-r from-blue-500 to-purple-500 text-white">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Register now!</h1>
-          <p className="py-6">
-            Register to create an account and access all the features of the
-            app.
+          <h1 className="text-4xl font-extrabold mb-4">Join TicketFusion!</h1>
+          <p className="text-lg mb-6">
+            Create an account to unlock exclusive features and manage your events effortlessly.
           </p>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card shrink-0 w-full max-w-sm shadow-lg bg-white text-gray-800">
           <div className="card-body">
             <div className="form-control">
               <label className="label font-bold">
@@ -76,8 +71,8 @@ const Registration = () => {
               </label>
               <input
                 type="email"
-                placeholder="email"
-                className="input input-bordered"
+                placeholder="Enter your email"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="email"
                 required
               />
@@ -88,8 +83,8 @@ const Registration = () => {
               </label>
               <input
                 type="password"
-                placeholder="password"
-                className="input input-bordered"
+                placeholder="Enter your password"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="password"
                 required
               />
@@ -100,8 +95,8 @@ const Registration = () => {
               </label>
               <input
                 type="password"
-                placeholder="confirm password"
-                className="input input-bordered"
+                placeholder="Confirm your password"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="confirm_password"
                 required
               />
@@ -113,7 +108,7 @@ const Registration = () => {
             )}
             <div className="form-control mt-6">
               <input
-                className="btn bg-red-500 text-white"
+                className="btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 type="submit"
                 value="Register"
               />
@@ -121,10 +116,10 @@ const Registration = () => {
             <div className="mt-6">
               <GoogleLogin />
             </div>
-            <div className="mt-6">
+            <div className="mt-6 text-center">
               <p>
-                Already have an account?{" "}
-                <Link to="/login" className="text-red-500">
+                Already have an account?{' '}
+                <Link to="/login" className="text-blue-500 hover:underline">
                   Login
                 </Link>
               </p>
