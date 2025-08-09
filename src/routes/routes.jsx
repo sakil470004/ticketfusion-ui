@@ -19,9 +19,7 @@ import MyBooking from "../pages/DashboardMyBooking/MyBooking";
 import ShowBooking from "../pages/DashboardShowBooking/ShowBooking";
 import Payment from "../pages/DashboardPayment/Payment/Payment";
 import PaymentHistory from "../pages/DashboardPayment/Payment/PaymentHistory";
-
-
-
+import About from "../pages/About/About";
 
 export const router = createBrowserRouter([
   {
@@ -40,9 +38,19 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
       { path: "/register", element: <Registration /> },
-      {path: "/events", element: <AllEvent />},
-      {path: "/events/:id", element: <PrivateRoute><EventDetails /></PrivateRoute>},
-   
+      { path: "/events", element: <AllEvent /> },
+      {
+        path: "/events/:id",
+        element: (
+          <PrivateRoute>
+            <EventDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
     ],
   },
   {
@@ -83,7 +91,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-     {
+      {
         path: "customers",
         element: (
           <PrivateRoute>
@@ -111,7 +119,7 @@ export const router = createBrowserRouter([
         path: "paymentHistory",
         element: (
           <PrivateRoute>
-            <PaymentHistory/>,
+            <PaymentHistory /> ,
           </PrivateRoute>
         ),
       },
@@ -123,8 +131,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-     
-      
+
       {
         path: "*",
         element: <ErrorPage />,

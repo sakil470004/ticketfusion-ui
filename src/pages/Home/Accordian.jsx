@@ -39,14 +39,14 @@ const Accordion = () => {
      Got Questions? We Have Answers
       </span>
     </div>
-      <div className="mt-6 flex flex-col gap-5 border-l-4 pl-3 border-l-sky-200">
+      <div className="mt-6 flex flex-col gap-2 border-l-4 pl-3 border-l-sky-200">
         {faqArray.map((faq) => (
           <div
-            className="collapse collapse-arrow bg-gray-50 shadow-sm border-2 border-sky-100"
+            className="collapse collapse-arrow p-0  bg-gray-50 shadow-sm border-2 border-sky-100"
             key={faq.id}
           >
             <input type="radio" name="my-accordion-2" defaultChecked />
-            <div className="collapse-title text-xl font-medium">
+            <div className="collapse-title text-xl font-medium p-2">
               {faq.question}
             </div>
             <div className="collapse-content border-b-2 border-sky-200">
